@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme, globals } from '../styles/defaults';
+import getConfig from 'next/config';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const GlobalStyle = createGlobalStyle`${globals}`;
 
-export default MyApp
+const PracticeJapanese = ({ Component, pageProps }) => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <Component {...pageProps} />
+  </ThemeProvider>
+);
+export default PracticeJapanese;
