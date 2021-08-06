@@ -9,6 +9,7 @@ function createRandomInteger(min, max) {
 function randomItem() {
   const counterTypes = [
     { icon: '/tv.png', text: 'テレビ' },
+    { icon: '/tv.png', text: 'テレビ' },
     { icon: '/bed.png', text: 'ベッド' },
     { icon: '/chair.png', text: 'イス' },
     { icon: '/sofa.png', text: 'ソファ' },

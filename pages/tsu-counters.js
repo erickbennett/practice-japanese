@@ -32,6 +32,13 @@ const Title = styled.h1`
   font-size: 3em;
   color: #5b5b5b;
 `;
+const HelpText = styled.h1`
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+  color: #5b5b5b;
+`;
 
 const Temple = styled.div`
   height: 520px;
@@ -182,8 +189,6 @@ function TsuCountersPage() {
       items.push(itemIcon);
     }
     setItems(items);
-
-    console.log(items);
   };
 
   const clearHandler = () => {
@@ -202,19 +207,16 @@ function TsuCountersPage() {
     clearHandler();
 
     if (language === languages.english) {
-      console.log('switch to japanese');
       setLanguage(languages.japanese);
       setHelpText(instructions['japanese']);
       return;
     }
 
     if (language === languages.japanese) {
-      console.log('switch to english');
       setLanguage(languages.english);
       setHelpText(instructions['english']);
       return;
     }
-    console.log('unknown');
   };
 
   // TODO: fix shoji transition
@@ -237,7 +239,7 @@ function TsuCountersPage() {
         </ItemGrid>
       </Temple>
 
-      <Title>{helpText}</Title>
+      <HelpText>{helpText}</HelpText>
       <ActionRow>
         <Button onClick={startHandler}>{start[language]}</Button>
         <Button onClick={clearHandler} disabled={items?.length === 0}>
