@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Shoji from '../components/tsucounters/shoji';
 import {
   instructions,
   answer,
@@ -15,12 +14,13 @@ import {
   randomItem,
 } from '../components/tsucounters/tsuCountersHelper';
 import styled, { css } from 'styled-components';
+import AnimatedImage from '../components/tsucounters/AnimatedImage';
 
 const CounterPage = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 60px 500px 60px 90px 90px;
+  grid-template-rows: 60px auto 60px 90px 90px;
   justify-items: center;
   align-items: center;
 `;
@@ -41,8 +41,8 @@ const HelpText = styled.h1`
 `;
 
 const Temple = styled.div`
-  height: 520px;
-  width: 820px;
+  height: 506px;
+  width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,11 +60,11 @@ const ItemGrid = styled.div`
   background-color: #282828;
   background-size: 16px 16px;
 
-  height: 95%;
+  align-self: flex-end;
+  padding: 20px;
+  height: 75%;
   width: 60%;
-  z-index: -1;
-
-  padding-top: 120px;
+  z-index: -2;
 
   display: grid;
   justify-items: center;
@@ -74,8 +74,7 @@ const ItemGrid = styled.div`
 `;
 
 const ActionRow = styled.div`
-  height: 100%;
-  width: 820px;
+  width: 800px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -140,11 +139,26 @@ const Home = styled.a`
   height: 40px;
   width: 100px;
 `;
+const Shoji = styled.div`
+  height: 373px;
+  width: calc(196px * 2.75);
 
-const StyledShoji = styled(Shoji)`
   position: absolute;
-  height: 360px;
-  width: 490px;
+  align-self: flex-end;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LeftShoji = styled.div`
+  flex: 1;
+  background-image: url('/shoji.png');
+  background-repeat: repeat-x;
+  height: 373px;
+  width: 196px;
+
+  z-index: -1;
 
   transition-duration: 0.5s;
   transform: translate(0%);
@@ -152,24 +166,19 @@ const StyledShoji = styled(Shoji)`
   ${props =>
     props.exit &&
     css`
-      animation-name: fadeInOpacity;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-in;
-      animation-duration: 0.5s;
-
       transition-duration: 0.75s;
-      transform: scale(1, 0.5);
-      transform: translateX(-2000px);
+      transform: translateX(-200px) scaleX(0);
     `};
+`;
 
-  @keyframes fadeInOpacity {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+//transform: rotateY(180deg);
+const RightShoji = styled(LeftShoji)`
+  ${props =>
+    props.exit &&
+    css`
+      transition-duration: 0.75s;
+      transform: translateX(200px) scaleX(0);
+    `};
 `;
 
 function TsuCountersPage() {
@@ -218,15 +227,17 @@ function TsuCountersPage() {
       return;
     }
   };
-
-  // TODO: fix shoji transition
+  //{items.length === 0 && <StyledShoji exit={items.length > 0} />}
   return (
     <CounterPage>
       <Title>Counting Household Items</Title>
 
       <Temple>
+        <Shoji>
+          <LeftShoji exit={items.length > 0} />
+          <RightShoji exit={items.length > 0} />
+        </Shoji>
         <ItemGrid>
-          {items.length === 0 && <StyledShoji exit={items.length > 0} />}
           {items?.map((item, i) => (
             <Image
               key={i}
