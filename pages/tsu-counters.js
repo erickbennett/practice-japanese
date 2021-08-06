@@ -225,8 +225,9 @@ function TsuCountersPage() {
       <Temple>
         <ItemGrid>
           {items.length === 0 && <StyledShoji exit={items.length > 0} />}
-          {items?.map(item => (
+          {items?.map((item, i) => (
             <Image
+              key={i}
               src={item.itemIcon}
               height={75}
               width={75}
@@ -258,7 +259,7 @@ function TsuCountersPage() {
         </Button>
       </ActionRow>
 
-      <Link href="/">
+      <Link href="/" passHref>
         <Home>Home</Home>
       </Link>
     </CounterPage>

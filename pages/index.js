@@ -95,7 +95,7 @@ export default function Home() {
         <Title>Welcome to Practice Japanese!</Title>
 
         <Grid>
-          <Link href="/tsu-counters">
+          <Link href="/tsu-counters" passHref>
             <Card>
               <h2>Tsu Counters</h2>
               <p>Practice your generic object counter skills.</p>
