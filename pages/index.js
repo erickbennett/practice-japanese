@@ -16,7 +16,7 @@ const Container = styled(DarklyTransparent)`
   justify-items: center;
   align-items: center;
   grid-template-columns: auto;
-  grid-template-rows: 80px auto 150px;
+  grid-template-rows: 80px auto 175px;
 `;
 
 const Main = styled.main`
@@ -28,15 +28,15 @@ const Main = styled.main`
 
   margin: 0;
 
-  border-top: 1px solid rgba(255, 255, 255, 1);
-  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
 const Title = styled.h1`
   margin: 0;
   font-size: 4em;
   text-transform: uppercase;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.2);
   text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
 `;
 
@@ -44,13 +44,15 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 `;
 
 const Card = styled.a`
   opacity: ${props => (props.inactive ? '0.3' : '1')};
   background: #fafafa;
-  box-shadow: 3px 2px 1px 1px rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 3px 2px 1px 1px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9px;
   font-size: 2em;
   margin: 30px;
