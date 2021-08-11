@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import {
   instructions,
   startLabel,
   clearLabel,
   answerLabel,
-  languages,
 } from '../components/tsucounters/tsuCountersConstants';
 import {
   convertToKana,
@@ -48,15 +48,12 @@ const ActionRow = styled.div`
   align-items: center;
 `;
 
-const LanguageTextSml = styled.span`
-  margin-top: 0.2em;
-  font-size: 0.75em;
-`;
-
 function TsuCountersPage() {
-  const [language, setLanguage] = useState(languages.english);
   const [answer, setAnswer] = useState(null);
   const [items, setItems] = useState([]);
+
+  const router = useRouter();
+  const { language } = router.query;
 
   const reset = () => {
     setAnswer(null);
@@ -81,22 +78,10 @@ function TsuCountersPage() {
     setAnswer(answer);
   };
 
-  const languageHandler = () => {
-    if (language === languages.english) {
-      setLanguage(languages.japanese);
-      return;
-    }
-
-    if (language === languages.japanese) {
-      setLanguage(languages.english);
-      return;
-    }
-  };
-
   return (
     <CounterPage>
       <Header>
-        <HomeLink />
+        <HomeLink language={language} />
       </Header>
 
       <HelpText>{answer ? answer : instructions[language]}</HelpText>
@@ -113,12 +98,6 @@ function TsuCountersPage() {
         </CounterButton>
         <CounterButton onClick={answerHandler} disabled={items?.length === 0}>
           {answerLabel[language]}
-        </CounterButton>
-        <CounterButton onClick={languageHandler}>
-          {language === languages.english ? 'English' : '言語'}
-          <LanguageTextSml>
-            {language === languages.english ? '言語' : 'English'}
-          </LanguageTextSml>
         </CounterButton>
       </ActionRow>
     </CounterPage>

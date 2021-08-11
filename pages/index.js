@@ -1,15 +1,18 @@
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import AppHead from '../components/common/AppHead';
 import {
-  MurderedoutBlack,
-  SubtleGrey,
-  DarkGrey,
+  BrilliantDark,
+  DarklyTransparent,
   Simple,
 } from '../components/common/Backgrounds';
+import { languages } from '../components/tsucounters/tsuCountersConstants';
 import styled from 'styled-components';
 
-const Container = styled(SubtleGrey)`
+const Container = styled(DarklyTransparent)`
   padding: 0 0.5rem;
   height: 100vh;
 
@@ -27,15 +30,17 @@ const Main = styled.main`
   justify-content: space-evenly;
   align-items: center;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
 `;
 
 const Title = styled.h1`
   margin: 0;
   font-size: 4em;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
 `;
 
@@ -48,7 +53,9 @@ const Footer = styled.footer`
 const Card = styled.a`
   opacity: ${props => (props.inactive ? '0.3' : '1')};
   background: #fafafa;
-  box-shadow: 4px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 3px 2px 1px 1px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 9px;
   font-size: 2em;
   margin: 30px;
   padding: 30px;
@@ -86,29 +93,51 @@ const ItemText = styled.p`
 `;
 
 const ImgBox = styled.div`
-  border: 10px solid #fff;
+  border: 5px solid #fff;
   box-shadow: 4px 2px rgba(0, 0, 0, 0.6);
 `;
+//transition-duration: 0.75s;
+//transform: rotate(-2deg);
 
-export default function Home() {
+const LanguageTextSml = styled.span`
+  margin-top: 0.2em;
+  font-size: 0.75em;
+`;
+
+function Home() {
+  const router = useRouter();
+  const { language: prevLanguage } = router.query;
+  const [language, setLanguage] = useState(prevLanguage || languages.japanese);
+  const { english, japanese } = languages;
+
+  const languageHandler = () => {
+    if (language === english) {
+      setLanguage(japanese);
+      return;
+    }
+
+    if (language === japanese) {
+      setLanguage(english);
+      return;
+    }
+  };
+
+  const imgSrcA = `https://source.unsplash.com/1024x768?japan,city,wallpaper`;
+  const imgSrcB = `https://source.unsplash.com/collection/4655931`;
+  const imgSrcC = `https://source.unsplash.com/collection/8593901`;
+
   return (
     <Container>
       <AppHead />
       <Title>Welcome to Practice Japanese!</Title>
       <Main>
         <ImgBox>
-          <Image src="/tokyo1.jpeg" height={500} width={400} />
-        </ImgBox>
-        <ImgBox>
-          <Image src="/tokyo2.jpeg" height={500} width={400} />
-        </ImgBox>
-        <ImgBox>
-          <Image src="/tokyo3.jpeg" height={500} width={400} />
+          <Image src={imgSrcB} height={450} width={725} />
         </ImgBox>
       </Main>
 
       <Footer>
-        <Link href="/tsu-counters" passHref>
+        <Link href={`/tsu-counters?language=${language}`} passHref>
           <Card>
             <JP />
             <ItemText>Tsu Counters</ItemText>
@@ -120,7 +149,16 @@ export default function Home() {
             <ItemText>Jikan</ItemText>
           </Card>
         </Link>
+
+        <Card onClick={languageHandler}>
+          {language === languages.english ? 'English' : '言語'}
+          <LanguageTextSml>
+            {language === languages.english ? '言語' : 'English'}
+          </LanguageTextSml>
+        </Card>
       </Footer>
     </Container>
   );
 }
+
+export default Home;

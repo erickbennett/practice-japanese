@@ -10,8 +10,8 @@ const StyledLink = styled.a`
   width: 100%;
 `;
 
-const HomeLink = () => (
-  <Link href="/" passHref>
+const HomeLink = ({ language }) => (
+  <Link href={`/?language=${language}`} passHref>
     <StyledLink>﹤ Home</StyledLink>
   </Link>
 );

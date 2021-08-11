@@ -1,30 +1,26 @@
 import styled from 'styled-components';
 
-const MurderedoutBlack = styled.div`
-  background: -webkit-linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
-  background: linear-gradient(360deg, #030303 10%, #1f1f1f 360%);
+export const BrilliantDark = styled.div`
+  background: repeating-linear-gradient(
+    45deg,
+    black,
+    black 10px,
+    #444 10px,
+    #444 11px
+  );
 `;
 
-const SubtleGrey = styled.div`
-  background: -webkit-linear-gradient(
-    360deg,
-    #dee1e1 10%,
-    #f4f4f4 360%
-  ); /* Chrome 10+, Saf5.1+ */
-  background: -moz-linear-gradient(
-    360deg,
-    #dee1e1 10%,
-    #f4f4f4 360%
-  ); /* FF3.6+ */
-  background: linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
+export const DarklyTransparent = styled.div`
+  background: repeating-linear-gradient(
+    #444,
+    transparent,
+    #444,
+    transparent,
+    #444
+  );
 `;
 
-const DarkGrey = styled.div`
-  background: -webkit-linear-gradient(360deg, #383836 10%, #4a4a4a 360%);
-  background: linear-gradient(360deg, #383836 10%, #4a4a4a 360%);
-`;
-
-const Simple = styled.div`
+export const Simple = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 1);
@@ -72,5 +68,3 @@ const Simple = styled.div`
     rgba(0, 0, 0, 1) 100%
   );
 `;
-
-export { MurderedoutBlack, SubtleGrey, DarkGrey, Simple };
