@@ -149,9 +149,9 @@ function Home() {
         </Link>
 
         <Card onClick={languageHandler}>
-          {language === languages.english ? 'English' : '言語'}
+          {language === languages.english ? 'English' : '日本語'}
           <LanguageTextSml>
-            {language === languages.english ? '言語' : 'English'}
+            {language === languages.english ? '日本語' : 'English'}
           </LanguageTextSml>
         </Card>
       </Footer>
