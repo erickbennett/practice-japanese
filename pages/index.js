@@ -121,6 +121,7 @@ function Home() {
   const imgSrcA = `https://source.unsplash.com/1024x768?japan,city,wallpaper`;
   const imgSrcB = `https://source.unsplash.com/collection/4655931`;
   const imgSrcC = `https://source.unsplash.com/collection/8593901`;
+  const specific = `https://source.unsplash.com/alY6_OpdwRQ`;
 
   return (
     <Container>
@@ -128,7 +129,7 @@ function Home() {
       <Title>Welcome to Practice Japanese!</Title>
       <Main>
         <ImgBox>
-          <Image src={imgSrcB} height={450} width={725} />
+          <Image src={specific} height={450} width={725} />
         </ImgBox>
       </Main>
 
