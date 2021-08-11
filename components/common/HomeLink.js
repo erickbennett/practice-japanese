@@ -5,7 +5,7 @@ const StyledLink = styled.a`
   display: flex;
   align-items: center;
   font-size: 2em;
-  color: #3483de;
+  color: #fff;
   text-decoration: none;
   width: 100%;
 `;

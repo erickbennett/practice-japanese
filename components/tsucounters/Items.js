@@ -9,11 +9,9 @@ const List = styled.div`
   background-color: #282828;
   background-size: 16px 16px;
 
-  align-self: flex-end;
-  padding: 20px;
-  height: 75%;
-  width: 60%;
-  z-index: -2;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
 
   display: grid;
   justify-items: center;
@@ -22,22 +20,18 @@ const List = styled.div`
   grid-template-rows: auto auto auto auto;
 `;
 
-function Items({ items }) {
-  //
-
-  return (
-    <List>
-      {items?.map((item, i) => (
-        <Image
-          key={i}
-          src={item.itemIcon}
-          height={75}
-          width={75}
-          alt={item.itemText}
-        />
-      ))}
-    </List>
-  );
-}
+const Items = ({ items }) => (
+  <List>
+    {items?.map((item, i) => (
+      <Image
+        key={i}
+        src={item.itemIcon}
+        height={65}
+        width={65}
+        alt={item.itemText}
+      />
+    ))}
+  </List>
+);
 
 export default Items;

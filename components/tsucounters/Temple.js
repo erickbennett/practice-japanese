@@ -1,41 +1,56 @@
+import Image from 'next/image';
 import styled, { css } from 'styled-components';
 
 const Layout = styled.div`
-  height: 506px;
-  width: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto auto;
+  border-bottom: 15px solid #421010;
+`;
+
+const House = styled.div`
+  height: 500px;
+  width: 650px;
 
   background-image: url('/temple.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center bottom;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  z-index: 1;
 `;
 
 const Shoji = styled.div`
-  width: calc(196px * 2.75);
-  position: absolute;
-  align-self: flex-end;
+  width: 100%;
+  height: 100%;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 5px;
 `;
 
 const LeftShoji = styled.div`
-  flex: 1;
   background-image: url('/shoji.png');
-  background-repeat: repeat-x;
-  height: 373px;
-  width: 196px;
-  z-index: -1;
+  background-size: contain;
+
+  z-index: 1;
+
+  height: 300px;
+  width: 30%;
+
   transition-duration: 0.5s;
   transform: translate(0%);
 
   ${props =>
     props.exit &&
     css`
-      transition-duration: 0.75s;
-      transform: translateX(-200px) scaleX(0);
+      transition-duration: 0.5s;
+      transform: translateX(-150px) scaleX(0);
     `};
 `;
 
@@ -43,19 +58,37 @@ const RightShoji = styled(LeftShoji)`
   ${props =>
     props.exit &&
     css`
-      transition-duration: 0.75s;
-      transform: translateX(200px) scaleX(0);
+      transition-duration: 0.5s;
+      transform: translateX(150px) scaleX(0);
     `};
+`;
+
+const Tree = styled.img`
+  width: 175px;
+  height: 400px;
+  z-index: 0;
+  align-self: flex-end;
+`;
+
+const ItemView = styled.div`
+  position: absolute;
+  height: 295px;
+  width: 388px;
+  z-index: 0;
 `;
 
 function Temple({ exit, children }) {
   return (
     <Layout>
-      <Shoji>
-        <LeftShoji exit={exit} />
-        <RightShoji exit={exit} />
-      </Shoji>
-      {children}
+      <Tree src="/tree.png" />
+      <House>
+        <Shoji>
+          <LeftShoji exit={exit} />
+          <ItemView>{children}</ItemView>
+          <RightShoji exit={exit} />
+        </Shoji>
+      </House>
+      <Tree src="/tree.png" />
     </Layout>
   );
 }

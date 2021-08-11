@@ -16,9 +16,10 @@ import Temple from '../components/tsucounters/Temple';
 import Items from '../components/tsucounters/Items';
 import CounterButton from '../components/tsucounters/CounterButton';
 import HomeLink from '../components/common/HomeLink';
+import { sky } from '../components/common/Backgrounds';
 import styled from 'styled-components';
 
-const CounterPage = styled.div`
+const CounterPage = styled(sky)`
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
@@ -38,7 +39,8 @@ const HelpText = styled.h1`
   display: flex;
   justify-content: center;
   font-size: 2.5em;
-  color: #5b5b5b;
+  color: #fff;
+  margin-bottom: -100px;
 `;
 
 const ActionRow = styled.div`

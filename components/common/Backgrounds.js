@@ -68,3 +68,38 @@ export const Simple = styled.div`
     rgba(0, 0, 0, 1) 100%
   );
 `;
+
+export const sky = styled.div`
+  background: linear-gradient(to bottom, #1e528e 0%, #265889 50%, #9da671 100%);
+`;
+
+export const sunset = styled.div`
+  background: linear-gradient(
+    to bottom,
+    #163c52 0%,
+    #4f4f47 30%,
+    #c5752d 60%,
+    #b7490f 80%,
+    #2f1107 100%
+  );
+`;
+
+export const midday = styled.div`
+  background: linear-gradient(to bottom, #1e528e 0%, #265889 50%, #9da671 100%);
+`;
+
+export const bluesky = styled.div`
+  background: linear-gradient(to bottom, #2473ab 0%, #1e528e 70%, #5b7983 100%);
+`;
+
+export const pinksunrise = styled.div`
+  background: linear-gradient(to bottom, #82addb 0%, #ebb2b1 100%);
+`;
+
+export const lightbluesky = styled.div`
+  background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
+`;
+
+export const blueskies = styled.div`
+  background: linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%);
+`;
