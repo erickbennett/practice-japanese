@@ -37,7 +37,7 @@ const CounterButton = styled.button`
 
   :disabled {
     background-color: grey;
-    font-style: italic;
+    pointer-events: none;
   }
 `;
 

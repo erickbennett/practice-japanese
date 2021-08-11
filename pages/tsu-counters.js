@@ -61,6 +61,7 @@ function TsuCountersPage() {
   };
 
   const startHandler = () => {
+    setAnswer(null);
     const itemCount = createRandomInteger(0, 10);
     const itemIcon = randomItem();
 

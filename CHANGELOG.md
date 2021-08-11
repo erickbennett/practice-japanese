@@ -13,3 +13,4 @@
 - [x] refactor: when setting language do not reset lesson
 - [x] refactor: layout of tsu counter page
 - [x] refactor: move language preference to home page
+- [x] fix: reset answer on clear or new
