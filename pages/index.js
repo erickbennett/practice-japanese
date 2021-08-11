@@ -4,11 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import AppHead from '../components/common/AppHead';
-import {
-  BrilliantDark,
-  DarklyTransparent,
-  Simple,
-} from '../components/common/Backgrounds';
+import { DarklyTransparent } from '../components/common/Backgrounds';
 import { languages } from '../components/tsucounters/tsuCountersConstants';
 import styled from 'styled-components';
 
