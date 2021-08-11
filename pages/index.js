@@ -9,14 +9,12 @@ import { languages } from '../components/tsucounters/tsuCountersConstants';
 import styled from 'styled-components';
 
 const Container = styled(DarklyTransparent)`
-  padding: 0 0.5rem;
   height: 100vh;
-
   display: grid;
   justify-items: center;
   align-items: center;
   grid-template-columns: auto;
-  grid-template-rows: 80px auto 175px;
+  grid-template-rows: auto auto auto;
 `;
 
 const Main = styled.main`
@@ -33,7 +31,7 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  margin: 0;
+  margin: 10px 0;
   font-size: 4em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.2);
@@ -46,6 +44,7 @@ const Footer = styled.footer`
   align-items: center;
   height: 100%;
   width: 100%;
+  margin: 5px 0;
 `;
 
 const Card = styled.a`
