@@ -7,3 +7,8 @@
 ## v1.0.1
 
 -[x] feature: add some basic style to the home page
+
+## v1.0.2
+
+- [x] refactor: when setting language do not reset lesson
+- [x] refactor: layout of tsu counter page

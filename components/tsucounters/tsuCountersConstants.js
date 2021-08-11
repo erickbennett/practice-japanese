@@ -8,19 +8,19 @@ const instructions = {
   japanese: 'いくつ ありますか',
 };
 
-const start = {
+const startLabel = {
   english: 'Start',
   japanese: 'はじめます',
 };
 
-const clear = {
+const clearLabel = {
   english: 'Clear',
-  japanese: 'x',
+  japanese: 'クリア',
 };
 
-const answer = {
+const answerLabel = {
   english: 'Answer',
   japanese: 'かいとう',
 };
 
-export { languages, instructions, start, clear, answer };
+export { languages, instructions, startLabel, clearLabel, answerLabel };
