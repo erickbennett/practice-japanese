@@ -130,7 +130,7 @@ function Home() {
       <Title>Welcome to Practice Japanese!</Title>
       <Main>
         <ImgBox>
-          <Image src={specific} height={450} width={725} />
+          <Image src={imgSrcA} height={450} width={725} />
         </ImgBox>
       </Main>
 
@@ -141,8 +141,8 @@ function Home() {
             <ItemText>Tsu Counters</ItemText>
           </Card>
         </Link>
-        <Link href="/" passHref>
-          <Card inactive>
+        <Link href={`/time?language=${language}`} passHref>
+          <Card>
             <JP />
             <ItemText>Jikan</ItemText>
           </Card>
@@ -160,3 +160,12 @@ function Home() {
 }
 
 export default Home;
+
+/*
+<Link href="/" passHref>
+  <Card inactive>
+    <JP />
+    <ItemText>About</ItemText>
+  </Card>
+</Link>
+*/

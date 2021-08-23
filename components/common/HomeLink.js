@@ -7,7 +7,6 @@ const StyledLink = styled.a`
   font-size: 2em;
   color: #fff;
   text-decoration: none;
-  width: 100%;
 `;
 
 const HomeLink = ({ language }) => (

@@ -7,9 +7,9 @@ import {
   clearLabel,
   answerLabel,
 } from '../components/tsucounters/tsuCountersConstants';
+import { createRandomInteger } from '../utils/random';
 import {
   convertToKana,
-  createRandomInteger,
   randomItem,
 } from '../components/tsucounters/tsuCountersHelper';
 import Temple from '../components/tsucounters/Temple';

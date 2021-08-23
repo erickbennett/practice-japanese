@@ -5,6 +5,10 @@ export const theme = {
 
   fontRegular: 'Lato-Regular',
   fontClock: 'Orbitron-Regular',
+
+  morning: `linear-gradient(to bottom, #82addb 0%, #ebb2b1 100%)`,
+  midday: `linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%)`,
+  evening: `linear-gradient(to bottom, #2d91c2 0%, #1e528e 100%)`,
 };
 
 export const globals = `
@@ -27,8 +31,6 @@ export const globals = `
     font-size: 10px;
     background-color: ${theme.white};
     -webkit-tap-highlight-color: transparent;
-
-
   }
 
   *, *:before, *:after {
@@ -40,6 +42,35 @@ export const globals = `
     margin: 0;
     font-size: 1em;
     font-family: ${theme.fontRegular};
+  }
+
+  h1::selection {
+    color: none;
+    background: none;
+  }
+
+  h1::-moz-selection {
+    color: none;
+    background: none;
+  }
+  span::selection {
+    color: none;
+    background: none;
+  }
+
+  span::-moz-selection {
+    color: none;
+    background: none;
+  }
+
+   img::selection {
+    color: none;
+    background: none;
+  }
+
+  img::-moz-selection {
+    color: none;
+    background: none;
   }
 
   a {

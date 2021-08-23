@@ -14,3 +14,7 @@
 - [x] refactor: layout of tsu counter page
 - [x] refactor: move language preference to home page
 - [x] fix: reset answer on clear or new
+
+## v1.0.3
+
+- [x] feature: add time test page
