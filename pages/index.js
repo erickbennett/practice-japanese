@@ -130,7 +130,7 @@ function Home() {
       <Title>Welcome to Practice Japanese!</Title>
       <Main>
         <ImgBox>
-          <Image src={imgSrcA} height={450} width={725} />
+          <Image src={specific} height={450} width={725} />
         </ImgBox>
       </Main>
 
